@@ -1,0 +1,124 @@
+@import '../var'
+
+
+// colors
+$color-main: #4badf1
+$color-main-light: #a3d9ff
+$color-white: #fff
+
+
+h1, h2, h3, h4, h5, h6
+    font-family: geo
+
+p
+    font-family: nokia
+    line-height: 1.2
+
+span
+    color: $color-main
+
+a
+    text-decoration: none
+
+.btn-outline-primary
+    border-color: $color-main
+    color: $color-main
+.btn-primary
+    background: $color-main
+    border-color: $color-main
+
+// nav
+nav
+    padding: 16px 0
+    background: $color-main-light
+    position: sticky
+    top: 0
+    z-index: 10
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px
+    border-radius: 0 0 20px 20px
+    @media(min-width: 768px)
+        padding: 10px 0
+    .nav-logo
+        display: flex
+        align-items: center
+        img
+            margin-right: 6px
+            max-height: 40px
+            @media(min-width: 768px)
+                max-height: 50px
+                margin-right: 12px
+        span
+            font-size: 1rem
+            font-weight: 600
+            color: $color-white
+            @media(min-width: 768px)
+                font-size: 1.3rem
+    ul
+        list-style: none
+        display: flex
+        align-items: center
+        margin: 0
+        padding: 0
+        a
+            transition: all .3s
+            padding: 6px 8px
+            &:hover
+                background: $color-main
+                color: $color-white
+            li
+                margin: 0px 6px
+// hero section
+.hero
+    min-height: 550px
+    display: flex
+    align-items: center
+    top: -30px
+    img
+        max-width: 550px
+        bottom: -400px
+    h1
+        font-size: 2rem
+        @media(min-width: 992px)
+            font-size: 2.7rem
+        margin-bottom: 0
+    h5
+        font-size: 1rem
+    ul
+        list-style: none
+        padding: 0
+        margin: 0
+        display: flex 
+        align-items: center
+        li
+            display: flex
+            align-items: center
+            font-size: .6rem
+            @media(min-width: 768px)
+                max-width: 150px
+                font-size: .8rem
+                margin-right: 12px
+            img
+                max-height: 35px
+                margin-right: 12px
+            p
+                margin-bottom: 0
+            
+// benefits
+.benefit-item
+    min-height: 350px
+    display: flex
+    align-items: end
+
+// footer
+footer
+    padding: 24px 0
+    padding-bottom: 0
+    background: $color-main-light
+    border-radius: 20px 20px 0 0 
+.copyright
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px
+    margin-top: 24px
+    padding: 12px 0
+    background: $color-main
+    border-radius: 20px 20px 0 0 
+    color: $color-white
