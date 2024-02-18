@@ -1,11 +1,5 @@
 @import '../var'
-
-
-// colors
-$color-main: #4badf1
-$color-main-light: #a3d9ff
-$color-white: #fff
-
+@import '../_kovrochist-set'
 
 h1, h2, h3, h4, h5, h6
     font-family: geo
@@ -19,6 +13,12 @@ span
 
 a
     text-decoration: none
+
+.section-title
+    padding-left: 12px
+    border-left: 4px solid $color-main
+    font-weight: 700
+    text-transform: uppercase
 
 .btn-outline-primary
     border-color: $color-main
@@ -73,9 +73,10 @@ nav
     display: flex
     align-items: center
     top: -30px
+    
     img
         max-width: 550px
-        bottom: -400px
+        bottom: -120px
     h1
         font-size: 2rem
         @media(min-width: 992px)

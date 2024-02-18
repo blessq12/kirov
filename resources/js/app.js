@@ -6,6 +6,7 @@
 
 import './bootstrap';
 import { createApp } from 'vue';
+import { MaskInput, vMaska } from 'maska';
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -14,6 +15,7 @@ import { createApp } from 'vue';
  */
 
 const app = createApp({});
+app.directive('maska', vMaska);
 
 Object.entries(import.meta.glob('./**/*.vue', { eager: true })).forEach(([path, definition]) => {
     app.component(path.split('/').pop().replace(/\.\w+$/, ''), definition.default);

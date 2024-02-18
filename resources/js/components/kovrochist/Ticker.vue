@@ -4,16 +4,17 @@ export default {
         tickets: Array
     },
     mounted(){
-
+        let clone = this.$refs.ticker.cloneNode(true)
+        this.$refs.wrap.appendChild(clone)
     }
 }
 </script>
 
 <template>
 
-    <div class="overflow-hidden">
-        <div class="ticker">
-            <ul>
+    <div class="overflow-hidden position-absolute wrap w-100">
+        <div class="ticker" ref="wrap">
+            <ul ref="ticker">
                 <li v-for="e in tickets">{{ e }}</li>
             </ul>
         </div>
@@ -22,14 +23,36 @@ export default {
 </template>
 
 <style lang="sass" scoped>
+@keyframes scroll 
+    0% 
+        transform: translateX(0)
+    100%
+      
+        transform: translateX(-100%)
+
+.wrap
+    z-index: -1
+    top: -30px
+    @media(min-width: 992px)
+        top: -35px
+.ticker
+    display: flex
+    align-items: center
+    ul
+        animation: scroll infinite 70s linear
 ul
     list-style: none
     padding: 0
     margin: 0
-    display: flex
-    align-items: center
+    display: inline-block
+    white-space: nowrap
     li
         display: inline-block
-        background: purple
-        white-space: nowrap
+        text-transform: uppercase
+        font-weight: 700
+        opacity: .4
+        font-family: geo
+        margin-right: 24px
+        font-size: 4rem
+        color: $color-main-light
 </style>

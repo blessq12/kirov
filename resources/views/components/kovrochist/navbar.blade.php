@@ -16,10 +16,7 @@
         </ul>
       </div>
       <div class="col d-flex justify-content-end">
-        <button class="btn btn-outline-primary d-block d-lg-none">
-          Меню
-          <i class="fa fa-bars"></i>
-        </button>
+        <mobile-menu></mobile-menu>
         <button class="btn btn-primary d-none d-lg-block rounded-pill">
           Заказать замер
         </button>
@@ -27,3 +24,4 @@
     </div>
   </div>
 </nav>
+<div id="mobile"></div>

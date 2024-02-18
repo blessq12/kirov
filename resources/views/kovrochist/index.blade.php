@@ -5,7 +5,7 @@
 
 @section('content')
 
-<section class="bg-image hero position-relative overflow-hidden" style="background: url(/kovrochist/img/bg-bunner-2.jpg)">
+<section class="bg-image hero position-relative overflow-hidden" style="background: url(https://catherineasquithgallery.com/uploads/posts/2021-02/1613302199_113-p-sinii-teksturnii-fon-181.jpg)">
     <div class="overlay"></div>
     <div class="container position-relative text-light">
         <div class="row row-cols-1 row-cols-lg-2">
@@ -31,20 +31,20 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <button class="btn-primary btn rounded-pill w-100 btn-lg">
-                            Оставьте заявку сейчас
-                        </button>
+                        <modal-window>
+                            Оставить заявку сейчас
+                        </modal-window>
                     </div>
                 </div>
             </div>
             <div class="col position-relative d-none d-lg-block">
-                <img src="/kovrochist/img/her_s_gori.webp" alt="" class="position-absolute">
+                <img src="/kovrochist/img/mann.png" alt="" class="position-absolute">
             </div>
         </div>
     </div>
 </section>
 
-<section>
+<section class="p-0 position-relative">
     @php
         $tickets = [
             'оперативность',
@@ -62,38 +62,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6">
-                <h2 class="section-title">явные преимущества на рынке</h2>
-                <p> Компания обладает материальнотехническим оснащением и квалифицированной бригадой мастеров, необходимыми для выполнения полученных заказов. Все работы осуществляются в соответствии с составленной сметой и условленными сроками. </p>
-                <ul class="list-unstyled p-0 m-0">
-                    <li class="d-flex align-items center">
-                        <p class="mb-0 fw-bold">мы постоянно совершенствуем технологический процесс</p>
-                    </li>
-                    <li class="d-flex align-items center">
-                        <p class="mb-0 fw-bold">используем современное оборудование</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-12 col-md-6">
-                <div class="rounded bg-image h-100" style="background: url(//via.placeholder.com/512x512);"></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section>
-    <div class="container">
-        <div class="row d-flex justify-content-center mb-5">
-            <div class="menu-content  col-lg-8">
-                <div class="title text-center">
-                    <h2 class="mb-10">ХИМЧИСТКА КОВРА - <span class="mclr">ПРОФИЛАКТИКА ЗДОРОВЬЯ</span></h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="sigle-service col-lg-4 col-md-4 text-center">
-                <img src="/kovrochist/img/logo.png" alt="" style="max-width: 250px; height:auto;">
-            </div>
-            <div class="sigle-service col-lg-8 col-md-8 ">
+                <h2 class="section-title mb-4">ХИМЧИСТКА КОВРА - <span> ПРОФИЛАКТИКА ЗДОРОВЬЯ </span></h2>
                 <p>
                     Красивый ковер, безусловно, добавляет стиль и комфорт Вашему дому. 
                     Но без регулярной чистки он также может представлять серьезную угрозу Вашему здоровью. 
@@ -104,6 +73,19 @@
                     чтобы он выглядели свежими, оставались чистыми не только визуально, 
                     но и не были местом размножения опасных для здоровья микробов.
                 </p>
+                <div class="my-4">
+                    <button class="btn btn-primary rounded-pill" style="margin-right: 6px">
+                        <i class="fa fa-phone"></i>
+                        Позвонить
+                    </button>
+                    <button class="btn btn-success rounded-pill">
+                        <i class="fa fa-whatsapp"></i>    
+                        Написать Whatsapp
+                    </button>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="bg-image h-100" style="background: url(/kovrochist/img/carpet_cleaner.png); background-size: contain !important"></div>
             </div>
         </div>
     </div>
@@ -111,12 +93,14 @@
 
 <section>
     <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="menu-content  col-lg-8">
-                <div class="title text-center">
-                    <h1 class="mb-10">Наши услуги</h1>
-                    <p>Мы предлагаем Вам наш перечень услуг в стирке и химчистке ковров и ковровых покрытий, а также химчистку мягкой мебели на дому.</p>
-                </div>
+        <div class="row mb-4">
+            <div class="col-12 col-lg-8">
+                <h2 class="section-title">
+                    Наши услуги
+                </h2>
+                <p>
+                    Мы предлагаем Вам наш перечень услуг в стирке и химчистке ковров и ковровых покрытий, а также химчистку мягкой мебели на дому.
+                </p>
             </div>
         </div>
         <div class="row">
@@ -145,11 +129,11 @@
 
 <section>
     <div class="container">
-        <div class="row d-flex justify-content-center mb-5">
-            <div class="menu-content  col-lg-8">
-                <div class="title text-center">
-                    <h2 class="mb-10">ЧТО ВЫ ПОЛУЧАЕТЕ, ЗАКАЗЫВАЯ <span class="mclr">ЧИСТКУ КОВРА</span></h2>
-                </div>
+        <div class="row mb-4">
+            <div class="col-12 col-md-8">
+                <h2 class="section-title">
+                    ЧТО ВЫ ПОЛУЧАЕТЕ, <span>ЗАКАЗЫВАЯ ЧИСТКУ КОВРА</span>
+                </h2>
             </div>
         </div>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 mb-lg-4">
@@ -228,16 +212,15 @@
 
 <section>
     <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="col">
-                <div class="title text-center">
-                    <h2>Наша галлерея проведенных работ</h2>
-                    <p>На данных фотографиях Вы можете увидеть, какая большая разница между до и после</p>
-                </div>
+        <div class="row mb-4">
+            <div class="col-12 col-md-8">
+                <h2 class="section-title">Галерея <span>проведенных</span> работ</h2>
+                <p>На данных фотографиях Вы можете увидеть, какая большая разница между до и после</p>
             </div>
         </div>
         <div class="row">
-            <div class="active-works-carousel">
+            <div class="col">
+
                 @php
                     $gallery = [
                         (object) ['name' => 'Химчистка мягкой мебели', 'sub' => 'Химчистка мягкой мебели с использованием профессиональной химии для достяжения наилучшего эффекта', 'image' => '/kovrochist/img/b_a/1.jpg'],
@@ -252,25 +235,15 @@
                         (object) ['name' => 'Химчистка мягкой мебели', 'sub' => 'Химчистка мягкой мебели с использованием профессиональной химии для достяжения наилучшего эффекта', 'image' => '/kovrochist/img/b_a/10.jpg'],
                     ]
                 @endphp
-                
-                @foreach ($gallery as $elem)    
-                    <div class="item">
-                        <img class="img-fluid slid" src="{{ $elem->image }}" alt="">
-                        <div class="caption text-center mt-20">
-                            <h6 class="text-uppercase">{{ $elem->name }}</h6>
-                            <p>
-                                {{ $elem->sub }}
-                            </p>
-                        </div>
-                    </div>
-                @endforeach
+
+                <slider :slides='@json($gallery)'></slider>
 
             </div>
         </div>
     </div>
 </section>
 
-<section
+<section>
     <div class="container">
         <div class="row">
             <div class="col-lg-6 skill-left">
