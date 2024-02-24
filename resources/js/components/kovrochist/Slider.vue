@@ -11,9 +11,13 @@ export default{
         setTimeout(()=>{
             this.$refs.sliderWrap.style.height = this.$refs.item[0].offsetHeight + 'px'
         }, 100)
+
     },
     watch:{
         current(val){
+            setTimeout(()=>{
+                this.$refs.sliderWrap.style.height = this.$refs.item[this.current].offsetHeight + 'px'
+            },100)
             if (val == -1){
                 this.current = this.slides.length - 1
             }
