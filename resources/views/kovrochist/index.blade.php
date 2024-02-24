@@ -20,10 +20,17 @@
                 <div class="row mb-4 g-2">
                     <div class="col">
                         <ul>
-                            @foreach ([1,1,1] as $item)
+                            @php
+                                $list = [
+                                    (object) ['name' => 'гипоаллергенные средства', 'icon' => 'fa fa-leaf'],
+                                    (object) ['name' => 'прозрачная система оплаты', 'icon' => 'fa fa-thumbs-up'],
+                                    (object) ['name' => 'скидки постоянным клиентам', 'icon' => 'fa fa-percent'],
+                                ]
+                            @endphp
+                            @foreach ($list as $item)
                                 <li>
-                                    <img src="//via.placeholder.com/100x100" alt="" class="img-fluid">
-                                    <p>прозрачная система оплаты</p>
+                                    <i class="{{ $item->icon }} fa-2x"></i>
+                                    <p class="mx-1">{{ $item->name }}</p>
                                 </li>
                             @endforeach
                         </ul>
@@ -32,7 +39,9 @@
                 <div class="row">
                     <div class="col">
                         <modal-window>
-                            Оставить заявку сейчас
+                            <button class="btn btn-primary rounded-pill w-100">
+                                Оставить заяку сейчас
+                            </button>
                         </modal-window>
                     </div>
                 </div>
@@ -75,16 +84,16 @@
                 </p>
                 <div class="row g-2">
                     <div class="col">
-                        <button class="btn btn-primary rounded-pill w-100">
+                        <a class="btn btn-primary rounded-pill w-100" href="tel:+7 (901) 479-49-40">
                             <i class="fa fa-phone"></i>
                             Позвонить
-                        </button>
+                        </a>
                     </div>
                     <div class="col">
-                        <button class="btn btn-success rounded-pill w-100">
+                        <a class="btn btn-success rounded-pill w-100" href="//wa.me/79014794940" target="_blank">
                             <i class="fa fa-whatsapp"></i>    
                             Whatsapp
-                        </button>
+                        </a>
                     </div>
                 </div>            
             </div>
@@ -135,7 +144,9 @@
         <div class="row justify-content-center align-items-center">
             <div class="col-12 col-md-6">
                 <modal-window>
-                    Оставить заявку сейчас
+                    <button class="btn btn-primary rounded-pill w-100">
+                        Оставить заяку сейчас
+                    </button>
                 </modal-window>
             </div>
         </div>
@@ -175,7 +186,9 @@
         <div class="row justify-content-center mb-5">
             <div class="col-12 col-md-6">
                 <modal-window>
-                    Оставить заявку
+                    <button class="btn btn-primary rounded-pill w-100">
+                        Оставить заяку сейчас
+                    </button>
                 </modal-window>
             </div>
         </div>
@@ -185,43 +198,42 @@
 <section>
     @php
         $coverTypes = [
-            (object) ['id' => 1, 'name' => 'Безворсовый', 'image' => '//via.placeholder.com/512x512', 'length' => [
-                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '//via.placeholder.com/512x512']
+            (object) ['id' => 1, 'name' => 'Безворсовый', 'image' => '/kovrochist/img/carpets/bezvors.jpeg', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '/kovrochist/img/carpets/bezvors_height.jpeg']
                     ]],
-            (object) ['id' => 2, 'name' => 'Ковролин', 'image' => '//via.placeholder.com/512x512', 'length' => [
-                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '//via.placeholder.com/512x512'],
-                        ['id' => 2, 'name' => 'Низкий', 'image' => '//via.placeholder.com/512x512']
+            (object) ['id' => 2, 'name' => 'Ковролин', 'image' => '/kovrochist/img/carpets/kovrolin.jpeg', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '/kovrochist/img/carpets/bezvors_height.jpeg'],
+                        ['id' => 2, 'name' => 'Низкий', 'image' => '/kovrochist/img/carpets/short.jpeg']
                     ]],
-            (object) ['id' => 3, 'name' => 'Синтетика', 'image' => '//via.placeholder.com/512x512', 'length' => [
-                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '//via.placeholder.com/512x512'],
-                        ['id' => 2, 'name' => 'Низкий', 'image' => '//via.placeholder.com/512x512'],
-                        ['id' => 3, 'name' => 'Средний', 'image' => '//via.placeholder.com/512x512']
+            (object) ['id' => 3, 'name' => 'Синтетика', 'image' => '/kovrochist/img/carpets/sintetika.jpeg', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '/kovrochist/img/carpets/bezvors_height.jpeg'],
+                        ['id' => 2, 'name' => 'Низкий', 'image' => '/kovrochist/img/carpets/short.jpeg'],
+                        ['id' => 3, 'name' => 'Средний', 'image' => '/kovrochist/img/carpets/medium.jpeg']
                     ]],
-            (object) ['id' => 4, 'name' => 'Вискоза', 'image' => '//via.placeholder.com/512x512', 'length' => [
-                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '//via.placeholder.com/512x512'],
-                        ['id' => 2, 'name' => 'Низкий', 'image' => '//via.placeholder.com/512x512']
+            (object) ['id' => 4, 'name' => 'Вискоза', 'image' => '/kovrochist/img/carpets/viskoza.jpeg', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '/kovrochist/img/carpets/bezvors_height.jpeg'],
+                        ['id' => 2, 'name' => 'Низкий', 'image' => '/kovrochist/img/carpets/short.jpeg']
                     ]],
-            (object) ['id' => 5, 'name' => 'Акрил', 'image' => '//via.placeholder.com/512x512', 'length' => [
-                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '//via.placeholder.com/512x512'],
-                        ['id' => 2, 'name' => 'Низкий', 'image' => '//via.placeholder.com/512x512']
+            (object) ['id' => 5, 'name' => 'Акрил', 'image' => '/kovrochist/img/carpets/akril.jpeg', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '/kovrochist/img/carpets/bezvors_height.jpeg'],
+                        ['id' => 2, 'name' => 'Низкий', 'image' => '/kovrochist/img/carpets/short.jpeg']
                     ]],
-            (object) ['id' => 6, 'name' => 'Бамбук', 'image' => '//via.placeholder.com/512x512', 'length' => [
-                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '//via.placeholder.com/512x512'],
-                        ['id' => 2, 'name' => 'Низкий', 'image' => '//via.placeholder.com/512x512']
+            (object) ['id' => 6, 'name' => 'Бамбук', 'image' => '/kovrochist/img/carpets/bambuk.jpeg', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '/kovrochist/img/carpets/bezvors_height.jpeg'],
+                        ['id' => 2, 'name' => 'Низкий', 'image' => '/kovrochist/img/carpets/short.jpeg']
                     ]],
-            (object) ['id' => 7, 'name' => 'Шёлк', 'image' => '//via.placeholder.com/512x512', 'length' => [
-                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '//via.placeholder.com/512x512'],
-                        ['id' => 2, 'name' => 'Низкий', 'image' => '//via.placeholder.com/512x512']
+            (object) ['id' => 7, 'name' => 'Шёлк', 'image' => '/kovrochist/img/carpets/shelk.jpeg', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '/kovrochist/img/carpets/bezvors_height.jpeg'],
+                        ['id' => 2, 'name' => 'Низкий', 'image' => '/kovrochist/img/carpets/short.jpeg']
                     ]],
-            (object) ['id' => 8, 'name' => 'Шерсть', 'image' => '//via.placeholder.com/512x512', 'length' => [
-                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '//via.placeholder.com/512x512'],
-                        ['id' => 2, 'name' => 'Низкий', 'image' => '//via.placeholder.com/512x512']
+            (object) ['id' => 8, 'name' => 'Шерсть', 'image' => '/kovrochist/img/carpets/sherst.jpeg', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '/kovrochist/img/carpets/bezvors_height.jpeg'],
+                        ['id' => 2, 'name' => 'Низкий', 'image' => '/kovrochist/img/carpets/short.jpeg']
                     ]],
-            (object) ['id' => 9, 'name' => 'Шегги', 'image' => '//via.placeholder.com/512x512', 'length' => [
-                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '//via.placeholder.com/512x512'],
-                        ['id' => 2, 'name' => 'Низкий', 'image' => '//via.placeholder.com/512x512'],
-                        ['id' => 3, 'name' => 'Средний', 'image' => '//via.placeholder.com/512x512'],
-                        ['id' => 4, 'name' => 'Высокий', 'image' => '//via.placeholder.com/512x512']
+            (object) ['id' => 9, 'name' => 'Шегги', 'image' => '/kovrochist/img/carpets/shaggy.jpeg', 'length' => [
+                        ['id' => 1, 'name' => 'Низкий', 'image' => '/kovrochist/img/carpets/short.jpeg'],
+                        ['id' => 2, 'name' => 'Средний', 'image' => '/kovrochist/img/carpets/medium.jpeg'],
+                        ['id' => 3, 'name' => 'Высокий', 'image' => '/kovrochist/img/carpets/long.jpeg']
                     ]],
         ];
     @endphp
@@ -275,24 +287,31 @@
         </div>
         <div class="row align-items-center">
 
-            <div class="col-md-8 mb-5">
+            <div class="col">
                 <div style="position:relative;overflow:hidden;border-radius: 2em;"><a href="https://yandex.ru/maps/46/kirov/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Киров</a><a href="https://yandex.ru/maps/46/kirov/house/ulitsa_romana_yerdyakova_25/YEAYcARiQUIFQFtifXpwdn1nYw==/?ll=49.632896%2C58.617215&utm_medium=mapframe&utm_source=maps&z=18" style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица Романа Ердякова, 25 — Яндекс.Карты</a><iframe src="https://yandex.ru/map-widget/v1/-/CCUMUQetHA" width="100%" height="400" frameborder="0" allowfullscreen="true" style="position:relative;"></iframe></div>
             </div>
             <div class="col-md-4">
                 <div class="row">
                     <div class="col-md-12 mb-5">
                         <h3 style="margin-bottom: 0.5em;">Адрес: </h3>
-                        <div>
-                        <h4 style="font-weight: 200;"><span class="footer-icon"><i class="fas fa-map-marker-alt"></i></span>Киров, ул.Романа Ердякова, 25</h4>
-                        </div>
+                        <h5 class="d-flex align-items-center">
+                            <i class="fa fa-map-marker" style="margin-right: 6px"></i>
+                            Киров, ул.Романа Ердякова, 25
+                        </h5>
                     </div>
                     <div class="col-md-12 mb-5">
                         <h3 style="margin-bottom: 0.5em;">Телефон: </h3>
-                        <h4 style="font-weight: 200;"><span class="footer-icon"><i class="fa fa-phone"></i></span>+7 (901) 479-49-40</h4>
+                        <h5 class="d-flex align-items-center">
+                            <i class="fa fa-phone" style="margin-right: 6px"></i>
+                            +7 (901) 479-49-40
+                        </h5>
                     </div>
                     <div class="col-md-12 mb-5">
                         <h3 style="margin-bottom: 0.5em;">Почта: </h3>
-                        <h4 style="font-weight: 200;"><span class="footer-icon"><i class="far fa-envelope"></i></span>covrochistkirov@mail.ru</h4>
+                        <h5 class="d-flex align-items-center">
+                            <i class="fa fa-envelope" style="margin-right: 6px"></i>
+                            covrochistkirov@mail.ru
+                        </h5>
                     </div>
                 </div>
             </div>
