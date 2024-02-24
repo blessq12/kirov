@@ -217,7 +217,7 @@ export default {
                                 </div>
                                 <div v-else-if="step == 4">
                                     <h5>Требуется доставка?</h5>
-                                    <div class="btn-group w-50 mb-2">
+                                    <div class="btn-group w-100 w-lg-50 mb-2">
                                         <button class="btn btn-outline-light" @click="formInputs.delivery = false" :class="{'active': !formInputs.delivery }">Без доставки</button>
                                         <button class="btn btn-outline-light" @click="formInputs.delivery = true" :class="{'active' : formInputs.delivery}">С доставкой</button>
                                     </div>
