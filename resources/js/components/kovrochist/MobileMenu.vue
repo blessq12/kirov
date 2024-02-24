@@ -29,25 +29,25 @@ export default {
                         <div class="col">
                             <span class="text-light d-block">Телефон:</span>
                             <p class="mb-0">
-                                <a href="tel:">+7 (901) 479-49-40</a>
+                                <a href="tel:+79014794940">+7 (901) 479-49-40</a>
                             </p>
                         </div>
                     </div>
                     <div class="row g-2">
                         <div class="col-12 mb-2">
-                            <a href="" class="btn btn-light rounded-pill w-100" target="_blank">
+                            <a href="https://yandex.ru/maps/46/kirov/?ll=49.632872%2C58.617152&mode=routes&rtext=~58.617151%2C49.632872&rtt=auto&ruri=~ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NjMzOTg0MRJG0KDQvtGB0YHQuNGPLCDQmtC40YDQvtCyLCDRg9C70LjRhtCwINCg0L7QvNCw0L3QsCDQldGA0LTRj9C60L7QstCwLCAyNSIKDRCIRkIV93dqQg%2C%2C&z=16.7" class="btn btn-light rounded-pill w-100" target="_blank">
                                 <i class="fa fa-map-marker"></i>
                                 Проложить маршрут
                             </a>
                         </div>
                         <div class="col-6">
-                            <a href="" class="btn btn-success rounded-pill w-100" target="_blank">
+                            <a href="//wa.me/79014794940" target="_blank" class="btn btn-success rounded-pill w-100">
                                 <i class="fa fa-whatsapp"></i>
                                 WhatsApp
                             </a>
                         </div>
                         <div class="col-6">
-                            <a href="" class="btn btn-light rounded-pill w-100" target="_blank">
+                            <a href="tel:+7 (901) 479-49-40" class="btn btn-light rounded-pill w-100" target="_blank">
                                 <i class="fa fa-phone"></i>
                                 Позвонить
                             </a>

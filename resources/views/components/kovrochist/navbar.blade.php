@@ -16,7 +16,7 @@
       <div class="col d-flex justify-content-end">
         <mobile-menu></mobile-menu>
         <modal-window>
-          <button class="btn btn-primary text-center rounded-pill">
+          <button class="btn btn-primary text-center rounded-pill d-none d-lg-block">
             Оставить заявку
           </button>  
         </modal-window>
