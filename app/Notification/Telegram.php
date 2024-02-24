@@ -21,7 +21,7 @@ class Telegram
         $message .= "Имя: {$data['name']} \n\r";
         $message .= "Телефон: {$data['tel']} \n\r";
         if (isset($data['message'])){
-            $message .= "Сообщение: {$data['message']} \n\r";
+            $message .= "{$data['message']} \n\r";
         }
         $request = $this->url . urlencode($message);
 

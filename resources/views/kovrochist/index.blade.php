@@ -183,7 +183,49 @@
 </section>
 
 <section>
-    <carpet-quiz>
+    @php
+        $coverTypes = [
+            (object) ['id' => 1, 'name' => 'Безворсовый', 'image' => '//via.placeholder.com/512x512', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '//via.placeholder.com/512x512']
+                    ]],
+            (object) ['id' => 2, 'name' => 'Ковролин', 'image' => '//via.placeholder.com/512x512', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '//via.placeholder.com/512x512'],
+                        ['id' => 2, 'name' => 'Низкий', 'image' => '//via.placeholder.com/512x512']
+                    ]],
+            (object) ['id' => 3, 'name' => 'Синтетика', 'image' => '//via.placeholder.com/512x512', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '//via.placeholder.com/512x512'],
+                        ['id' => 2, 'name' => 'Низкий', 'image' => '//via.placeholder.com/512x512'],
+                        ['id' => 3, 'name' => 'Средний', 'image' => '//via.placeholder.com/512x512']
+                    ]],
+            (object) ['id' => 4, 'name' => 'Вискоза', 'image' => '//via.placeholder.com/512x512', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '//via.placeholder.com/512x512'],
+                        ['id' => 2, 'name' => 'Низкий', 'image' => '//via.placeholder.com/512x512']
+                    ]],
+            (object) ['id' => 5, 'name' => 'Акрил', 'image' => '//via.placeholder.com/512x512', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '//via.placeholder.com/512x512'],
+                        ['id' => 2, 'name' => 'Низкий', 'image' => '//via.placeholder.com/512x512']
+                    ]],
+            (object) ['id' => 6, 'name' => 'Бамбук', 'image' => '//via.placeholder.com/512x512', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '//via.placeholder.com/512x512'],
+                        ['id' => 2, 'name' => 'Низкий', 'image' => '//via.placeholder.com/512x512']
+                    ]],
+            (object) ['id' => 7, 'name' => 'Шёлк', 'image' => '//via.placeholder.com/512x512', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '//via.placeholder.com/512x512'],
+                        ['id' => 2, 'name' => 'Низкий', 'image' => '//via.placeholder.com/512x512']
+                    ]],
+            (object) ['id' => 8, 'name' => 'Шерсть', 'image' => '//via.placeholder.com/512x512', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '//via.placeholder.com/512x512'],
+                        ['id' => 2, 'name' => 'Низкий', 'image' => '//via.placeholder.com/512x512']
+                    ]],
+            (object) ['id' => 9, 'name' => 'Шегги', 'image' => '//via.placeholder.com/512x512', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '//via.placeholder.com/512x512'],
+                        ['id' => 2, 'name' => 'Низкий', 'image' => '//via.placeholder.com/512x512'],
+                        ['id' => 3, 'name' => 'Средний', 'image' => '//via.placeholder.com/512x512'],
+                        ['id' => 4, 'name' => 'Высокий', 'image' => '//via.placeholder.com/512x512']
+                    ]],
+        ];
+    @endphp
+    <carpet-quiz :carpets='@json($coverTypes)'>        
     </carpet-quiz>
 </section>
 
@@ -220,22 +262,6 @@
     </div>
 </section>
 
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 skill-left">
-                <h2>Позаботьтесь о близких!</h2>
-                <p>
-                    Вспомните, какие облака пыли поднимаются вокруг ковра, когда его выбивают. <br> Они в прямом смысле отравляет вам жизнь. Каждый год в ковре и под ним собирается 2–3 килограмма пыли. <br> Так что ковёр в доме может привести к аллергии, затруднению дыхания и проблемам со сном. Исходя из этого чистка ковров рекомендована не реже <span style="font-weight: bold;font-size: 20px;">2 раз</span> в год
-                </p>
-                <button class="btn btn-primary rounded-pill">Отправить заявку</button>
-            </div>
-            <div class="col-lg-6 text-center about-right call-rght" style="margin-top:20px;">
-                <img src="/kovrochist/img/about_carpet.png" alt="" class="img-fluid">
-            </div>
-        </div>
-    </div>
-</section>
 
 <section>
     <div class="container">
