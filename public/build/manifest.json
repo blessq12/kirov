@@ -68,11 +68,11 @@
     "src": "resources/fonts/Nokia/ofont.ru_Nokia Sans S60.woff"
   },
   "resources/js/app.js": {
-    "file": "assets/app-ugeknmZx.js",
+    "file": "assets/app-MGnrEgEo.js",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-yMMYno7u.css"
+      "assets/app-BbtkUeMS.css"
     ]
   },
   "resources/sass/kovrochist/app.sass": {

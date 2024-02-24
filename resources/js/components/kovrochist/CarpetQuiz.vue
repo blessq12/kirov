@@ -142,7 +142,7 @@ export default {
                             <transition enter-active-class="animate__animated animate__fadeIn" leave-active-class="animate__animated animate__fadeOut" mode="out-in">
                                 <div v-if="step == 0">
                                     <h5>Какой у вас тип ковра?</h5>
-                                    <div class="row row-cols-2 row-cols-lg-3 g-2">
+                                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
                                         <div class="col mb-1" v-for="e in carpets" :key="e.id">
                                             <label :for="'carpet-' + e.id" class="d-flex align-items-center p-2 border" @click="step = 1; carpet = e">
                                                 <input type="radio" name="koverType" :value="e.name" :id="'carpet-' + e.id" v-model="formInputs.carpetType" class="d-none">
@@ -154,7 +154,7 @@ export default {
                                 </div>
                                 <div v-else-if="step == 1">
                                     <h5>Длина ворса?</h5>
-                                    <div class="row row-cols-2 row-cols-lg-3 g-2">
+                                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
                                         <div class="col mb-1" v-for="e in carpet['length']" >
                                             <label :for="'length-' + e.id" class="d-flex align-items-center p-2 border" @click="step = 2">
                                                 <input type="radio" name="koverType" :value="e.name" :id="'length-' + e.id" v-model="formInputs.vors" class="d-none">
@@ -191,7 +191,7 @@ export default {
                                 <div v-else-if="step == 3">
                                     <h5>Рассчет готов</h5>
                                     <p>Какой способ связи для вас удобнее?</p>
-                                    <div class="row row-cols-2 row-cols-lg-3 g-2">
+                                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
                                         <div class="col" style="white-space: nowrap">
                                             <label for="recall" class="p-2 border w-100 text-center" @click="step = 4">
                                                 <i class="fa fa-phone"></i>
