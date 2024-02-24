@@ -1,15 +1,66 @@
 <script>
+import { object, string } from 'yup';
 export default {
+    mounted(){
+        
+    },
     data:()=>({
-        modal: false
+        modal: false,
+        send: false,
+        success: false,
+        formHeight: null,
+        formInputs: {},
+        formErrors: {},
+        schema: object({
+            name: string().required('Обязательное поле').min(3, 'Минимум 3 символа'),
+            tel: string().required('Обязательное поле').min(18, 'Некорректный номер') 
+        })
     }),
+    methods:{
+        validate(){
+            this.schema.validate(this.formInputs, {abortEarly: false})
+            .then( res => { 
+                axios.post('/api/notify/telegram', res)
+                .then(res => {
+                    if (res.status){
+                        this.success = true;
+                        this.send = !this.send
+                    }
+                })
+                .catch( err => {
+                    if (!err.status){
+                        this.success = false;
+                        this.send = !this.send
+                    }
+                })
+             } )
+            .catch( err => { this.formErrors = {}; err.inner.forEach( e => { this.formErrors[e.path] = e.message } ) } )
+        }
+    },
     watch:{
         modal(val){
+            
             if (val){
-                document.body.classList.add('overflow-hidden')
+                setTimeout(() => {
+                    this.formHeight = this.$refs.form.offsetHeight
+                }, 500);
+            }
+
+            if (!val){
+                document.body.classList.remove('overflow-hidden')
                 return
             }
-            document.body.classList.remove('overflow-hidden')
+            
+            document.body.classList.add('overflow-hidden')
+
+        },
+        send(val){
+            if (val){
+                setTimeout(() => {
+                    this.send = !this.send
+                    this.modal = !this.modal
+                }, 3000);
+            }
         }
     }
 }
@@ -17,80 +68,67 @@ export default {
 
 <template>
     
-    <button type="button" @click="modal = !modal" class="btn btn-primary w-100 rounded-pill">
-        <slot></slot>
-    </button>
+    <button class="btn btn-primary rounded-pill w-100" @click="modal = !modal">Оставить заявку сейчас</button>
 
-    <teleport to="body">
-        <transition
-            enter-active-class="animate__animated animate__fadeIn"
-            leave-active-class="animate__animated animate__fadeOut"
-        >
-            <div class="wrapper" v-if="modal">
-                
-                <div class="m-window position-relative rounded">
-                    <div class="header border-bottom">
-                        <span>
-                            Оставить заявку
-                        </span>
-                        <button class="btn-close" @click="modal = !modal"></button>
-                    </div>
-                    <form @submit.prevent="()=>{console.log('asdad')}" method="post">
-                        <div class="content py-3">
-                                <div class="form-group mb-3">
-                                    <label for="name">Введите имя:</label>
-                                    <input type="text" name="name" id="name" class="form-control" >
+<transition enter-active-class="animate__animated animate__fadeIn" leave-active-class="animate__animated animate__fadeOut" mode="out-in">
+    <div class="w-100 h-100 position-fixed top-0 d-flex align-items-center invisible" style="left: 0;z-index: 20;" v-if="modal">
+        <div class="overlay visible" @click="modal = !modal"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-6">
+                    <transition enter-active-class="animate__animated animate__fadeIn" leave-active-class="animate__animated animate__fadeOut" mode="out-in">
+                        <div class="cbf visible position-relative bg-light rounded" v-if="!send" ref="form">
+                            <div class="d-flex align-items-center justify-content-between p-2 py-4 px-md-3 border-bottom">
+                                <h4 class="mb-0">Оставить заявку</h4>
+                                <button class="btn-close" @click="modal = !modal"></button>
+                            </div>
+                            <form @submit.prevent="validate()">
+                                <div class="p-2 py-4 px-md-3">
+                                <p class="text-dark">Оставьте заявку на сайте и наш менеджер свяжется с вами в ближайшее время</p>
+                                    <div class="form-group mb-2">
+                                        <label for="name" class="text-dark">Введите Имя</label>
+                                        <transition enter-active-class="animate__animated animate__fadeIn" leave-active-class="animate__animated animate__fadeOut" mode="out-in">
+                                        <p class="text-danger d-inline mb-0 mx-2" v-if="formErrors.name">{{ formErrors.name }}</p>
+                                        </transition>
+                                        <input type="text" name="name" id="name" class="form-control" v-model="formInputs.name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tel" class="text-dark">Номер телефона</label>
+                                        <transition enter-active-class="animate__animated animate__fadeIn" leave-active-class="animate__animated animate__fadeOut" mode="out-in">
+                                        <p class="text-danger d-inline mb-0 mx-2" v-if="formErrors.tel">{{ formErrors.tel }}</p>
+                                        </transition>
+                                        <input type="text" name="tel" id="tel" class="form-control" v-maska data-maska="+7 (###) ###-##-##" v-model="formInputs.tel">
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="tel">Номер телефона:</label>
-                                    <input type="text" name="tel" id="tel" class="form-control" v-maska data-maska="+7 (###) ###-##-##">
+                                <div class="p-2 py-4 px-md-3 border-top">
+                                    <button type="submit" class="btn btn-primary rounded-pill">Отправить</button>
+                                    <button type="reset" class="btn btn-outline-primary rounded-pill mx-2">Очистить</button>
                                 </div>
-                                
+                            </form>
                         </div>
-                        <div class="footer">
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary rounded-pill">Отправить</button>
-                                <button type="reset" class="btn btn-outline-primary rounded-pill mx-2">Очистить</button>
+
+                        <div class="d-flex align-items-center justify-content-center visible bg-light rounded position-relative" v-else :style="'height: ' + formHeight + 'px;'">
+                            <div v-if="success" class="d-flex align-items-center justify-content-center">
+                                <img src="/images/success.webp" alt="" class="img-fluid h-50" style="max-height: 140px;">
+                                <h4 class="text-primary w-50 mx-2">Ваша заявка отправлена, наш менеджер скоро с вамии свяжется</h4>
+                            </div>
+                            <div v-else class="d-flex align-items-center justify-content-center">
+                                <img src="/images/fail.png" alt="" class="img-fluid h-50" style="max-height: 140px;">
+                                <h4 class="text-primary w-50 mx-2">При отправке произошла ошибка. Повторите попытку</h4>
                             </div>
                         </div>
-                    </form>
+                    </transition>
                 </div>
-
             </div>
-        </transition>
-    </teleport>
-
+        </div>
+    </div>
+</transition>
 </template>
 
 <style lang="sass" scoped>
-.wrapper
-    position: fixed
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
-    background: rgba(0, 0, 0, .6)
-    z-index: 15
-    display: flex
-    align-items: center
-    padding: 12px
-    .m-window
-        width: 100%
-        min-height: 200px
-        background: $color-white
-        padding: 24px 12px
-        z-index: 20
-        .header 
-            display: flex
-            align-items: center
-            justify-content: space-between
-            height: 40px
-            padding-bottom: 12px
-            span
-                font-size: 1.4rem
-                display: block
-                font-weight: 600
-                font-family: geo
-
-        
+.cbf
+    h4
+        color: #4badf1
+.text-primary
+    color: #4badf1 !important
 </style>
