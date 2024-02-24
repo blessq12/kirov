@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::domain('kover.dd')->name('kovrochist.')->group(function(){
+Route::domain(env('KOVROCHIST_DOMAIN'))->name('kovrochist.')->group(function(){
     
     Route::controller(KovrochistFrontController::class)->name('front.')->group(function(){
         Route::get('/', 'indexPage')->name('index-page');
