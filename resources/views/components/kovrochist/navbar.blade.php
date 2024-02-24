@@ -7,19 +7,19 @@
           <span>Коврочист43</span>
         </div>
       </div>
-      <div class="col d-none d-lg-flex justify-content-center">
-        <ul>
-          <a href="" class="rounded-pill"><li>Ссылка</li></a>
-          <a href="" class="rounded-pill"><li>Ссылка</li></a>
-          <a href="" class="rounded-pill"><li>Ссылка</li></a>
-          <a href="" class="rounded-pill"><li>Ссылка</li></a>
-        </ul>
+      <div class="col d-none d-lg-flex text-center justify-content-center ">
+        <a class="mb-0 btn btn-outline-dark rounded-pill" href="tel:+7 (901) 479-49-40">
+          <i class="fa fa-phone"></i>
+          +7 (901) 479-49-40
+        </a>
       </div>
       <div class="col d-flex justify-content-end">
         <mobile-menu></mobile-menu>
-        <button class="btn btn-primary d-none d-lg-block rounded-pill">
-          Заказать замер
-        </button>
+        <modal-window>
+          <button class="btn btn-primary text-center rounded-pill">
+            Оставить заявку
+          </button>  
+        </modal-window>
       </div>
     </div>
   </div>

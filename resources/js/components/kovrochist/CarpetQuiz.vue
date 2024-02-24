@@ -125,10 +125,10 @@ export default {
                     </p>
                     <div class="row row-cols-2 g-2">
                         <div class="col">
-                            <a href="tel" class="btn btn-light rounded-pill w-100">Позвонить</a>
+                            <a href="tel:79014794940" class="btn btn-light rounded-pill w-100">Позвонить</a>
                         </div>
                         <div class="col">
-                            <a href="tel" class="btn btn-success rounded-pill w-100">WhatsApp</a>
+                            <a href="//wa.me/79014794940" target="_blank" class="btn btn-success rounded-pill w-100">WhatsApp</a>
                         </div>
                     </div>
                 </div>

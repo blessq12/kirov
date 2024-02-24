@@ -67,8 +67,9 @@ export default {
 </script>
 
 <template>
-    
-    <button class="btn btn-primary rounded-pill w-100" @click="modal = !modal">Оставить заявку сейчас</button>
+    <div @click="modal = !modal">
+        <slot></slot>
+    </div>
 
 <transition enter-active-class="animate__animated animate__fadeIn" leave-active-class="animate__animated animate__fadeOut" mode="out-in">
     <div class="w-100 h-100 position-fixed top-0 d-flex align-items-center invisible" style="left: 0;z-index: 20;" v-if="modal">
