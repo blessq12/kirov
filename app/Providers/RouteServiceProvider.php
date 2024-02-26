@@ -32,9 +32,7 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('api')
                 ->prefix('api')
                 ->group(function(){
-                    require base_path('routes/kovrochist/api.php');
-                    require base_path('routes/clean-kirov/api.php');
-                    require base_path('routes/vssk/api.php');
+                    require base_path('routes/api.php');
                 });
 
             Route::middleware('web')

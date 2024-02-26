@@ -1,6 +1,6 @@
 <footer>
     <div class="container">
-        <div class="row">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
             <div class="col">
                 <div class="footer-logo mb-2">
                     <img src="/kovrochist/img/logo.png" alt="" class="img-fluid">
@@ -34,8 +34,9 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    copyright
+                    Все права защищены {{ now()->year }} Copyright
                 </div>
+                <div class="col text-end">Разработано <a href="javascript:void(0)" class="fw-bold">CODA</a></div>
             </div>
         </div>
     </div>

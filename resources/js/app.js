@@ -7,6 +7,7 @@
 import './bootstrap';
 import { createApp } from 'vue';
 import { MaskInput, vMaska } from 'maska';
+import { createPinia } from 'pinia';
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -15,7 +16,10 @@ import { MaskInput, vMaska } from 'maska';
  */
 
 const app = createApp({});
+const pinia = createPinia()
+app.use(pinia)
 app.directive('maska', vMaska);
+
 
 Object.entries(import.meta.glob('./**/*.vue', { eager: true })).forEach(([path, definition]) => {
     app.component(path.split('/').pop().replace(/\.\w+$/, ''), definition.default);

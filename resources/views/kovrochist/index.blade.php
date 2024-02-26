@@ -11,19 +11,26 @@
         <div class="row row-cols-1 row-cols-lg-2">
             <div class="col">
                 <div class="mb-3">
-                    <h5><span>Профессионально и с доставкой</span></h5>
+                    <h5><span>Профессионально и с бесплатной доставкой</span></h5>
                     <h1>ХИМЧИСТКА, СТИРКА КОВРОВ В КИРОВЕ</h1>
-                    <p>
-                        Принимаем ковры всех видов в независимости от погоды. Стирка производиться на заводском оборудовании
-                    </p>
+                    {{-- <p>
+                        Принимаем ковры всех видов, в независимости от погоды. Стирка производится на заводском оборудовании
+                    </p> --}}
                 </div>
                 <div class="row mb-4 g-2">
                     <div class="col">
                         <ul>
-                            @foreach ([1,1,1] as $item)
+                            @php
+                                $list = [
+                                    (object) ['name' => 'гипоаллергенные средства', 'icon' => 'fa fa-leaf'],
+                                    (object) ['name' => 'прозрачная система оплаты', 'icon' => 'fa fa-thumbs-up'],
+                                    (object) ['name' => 'скидки постоянным клиентам', 'icon' => 'fa fa-percent'],
+                                ]
+                            @endphp
+                            @foreach ($list as $item)
                                 <li>
-                                    <img src="//via.placeholder.com/100x100" alt="" class="img-fluid">
-                                    <p>прозрачная система оплаты</p>
+                                    <i class="{{ $item->icon }} fa-2x"></i>
+                                    <p class="mx-1">{{ $item->name }}</p>
                                 </li>
                             @endforeach
                         </ul>
@@ -32,7 +39,9 @@
                 <div class="row">
                     <div class="col">
                         <modal-window>
-                            Оставить заявку сейчас
+                            <button class="btn btn-primary rounded-pill w-100">
+                                Оставить заяку сейчас
+                            </button>
                         </modal-window>
                     </div>
                 </div>
@@ -70,19 +79,23 @@
                 </p>
                 <p>
                     Даже при регулярной уборке пылесосом ковры нуждаются в профессиональной чистке, 
-                    чтобы он выглядели свежими, оставались чистыми не только визуально, 
+                    чтобы они выглядели свежими, оставались чистыми не только визуально, 
                     но и не были местом размножения опасных для здоровья микробов.
                 </p>
-                <div class="my-4">
-                    <button class="btn btn-primary rounded-pill" style="margin-right: 6px">
-                        <i class="fa fa-phone"></i>
-                        Позвонить
-                    </button>
-                    <button class="btn btn-success rounded-pill">
-                        <i class="fa fa-whatsapp"></i>    
-                        Написать Whatsapp
-                    </button>
-                </div>
+                <div class="row g-2">
+                    <div class="col">
+                        <a class="btn btn-primary rounded-pill w-100" href="tel:+7(901)479-49-40">
+                            <i class="fa fa-phone"></i>
+                            Позвонить
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-success rounded-pill w-100" href="//wa.me/79014794940" target="_blank">
+                            <i class="fa fa-whatsapp"></i>    
+                            Whatsapp
+                        </a>
+                    </div>
+                </div>            
             </div>
             <div class="col-12 col-md-6">
                 <div class="bg-image h-100" style="background: url(/kovrochist/img/carpet_cleaner.png); background-size: contain !important"></div>
@@ -99,29 +112,42 @@
                     Наши услуги
                 </h2>
                 <p>
-                    Мы предлагаем Вам наш перечень услуг в стирке и химчистке ковров и ковровых покрытий, а также химчистку мягкой мебели на дому.
+                    Услуги по коврам и ковровым покрытиям.
                 </p>
             </div>
         </div>
-        <div class="row">
+        <div class="row row-cols-1 row-cols-md-2">
+            @php
+                $slugs = [
+                    (object)['name' => 'Стирка/ химчистка ковров и ковровых покрытий', 'desc' => 'Качественное очищение покрытий гарантирует устранение неприятных запахов от изделий, используется, если краски на поверхности тускнеют, а ворс – становится более спрессованным. Специалисты рекомендуют проводить такую процедуру хотя бы раз в полгода – год.', 'image' => '/kovrochist/img/stirka.jpeg'],
+                    (object)['name' => 'Оверлок', 'desc' => 'В первую очередь эта процедура необходима для ковролина , особенно если Вы хотите использовать его  в качестве ковра на пол. Только так можно придать жесткость форме (что особенно важно при создании дизайнерских ковров и палацев сложной формы), а также полностью исключить выпадение ворса. К тому же, оверлок отлично подчеркивает дизайн покрытия для пола и очень часто используется в интерьерном оформлении и как декоративный элемент.', 'image' => '/kovrochist/img/overlock.jpeg'],
+                    (object)['name' => 'Антибактериальная обработка ', 'desc' => 'Вирусы, бактерии и прочие микроорганизмы окружают нас повсюду, каждый день. Многих из них наш иммунитет в силах побороть, поэтому мы не замечаем их воздействия. Однако, есть и особо опасные частицы, способные вызвать различные заболевания. Особенно это касается маленьких детей, чья иммунная система еще не сформирована до конца. Поэтому важно обеспечить гигиеническую безопасность хотя бы внутри дома.', 'image' => '/kovrochist/img/antibacktery.jpeg'],
+                    (object)['name' => 'Дезинфекция', 'desc' => 'На этом этапе выполняется уничтожение оставшихся микроорганизмов – пылевых клещей, грибка, плесени, их личинок и спор. Для этого применяются специальные химикаты, безопасные для пользователя, которые проникают вглубь ворса до самого основания, где наибольшая концентрация возможных паразитов.', 'image' => '/kovrochist/img/dezinf.jpeg'],
+                ]
+            @endphp
 
-            <div class="sigle-service col-lg-6 col-md-6 text-center">
-            <img class='img-fluid' src="/kovrochist/img/carpets.jpg" />
-                    <div class="card-body text-center mx-auto">
-                        <h5 class="card-title">Стирка/ химчистка<br>ковров и ковровых покрытий</h5>
-                        <p>Стирка производится в цеху на спец. оборудовании.</p>
-                        <button class="slug-btn">Заказать услугу</button>
+            @foreach ($slugs as $el)
+                <div class="col mb-4">
+                    <div class="row row-cols-1 {{ $loop->iteration % 2 == 0 ? 'flex-row-reverse' : '' }}">
+                        <div class="col">
+                            <div class="header rounded bg-image mb-2" style="min-height: 200px; background: url({{ $el->image !== '' ? $el->image : '//via.placeholder.com/1024x1024' }})">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <h5>{{ $el->name }}</h5>
+                            <p>{{ $el->desc }}</p>
+                        </div>
                     </div>
-            </div>
-
-
-            <div class="sigle-service col-lg-6 col-md-6 text-center">
-             <img class='img-fluid' src="https://i.imgur.com/WaZxrEe.jpg"/>
-                    <div class="card-body text-center mx-auto">
-                        <h5 class="card-title">Химчистка мягкой мебели и пледов </h5>
-                        <p>Выездная химчистка, производится с выездом к клиенту.</p>
-                        <button class="slug-btn">Заказать услугу</button>
-                    </div>
+                </div>
+            @endforeach
+        </div>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-6">
+                <modal-window>
+                    <button class="btn btn-primary rounded-pill w-100">
+                        Оставить заяку сейчас
+                    </button>
+                </modal-window>
             </div>
         </div>
     </div>
@@ -132,23 +158,24 @@
         <div class="row mb-4">
             <div class="col-12 col-md-8">
                 <h2 class="section-title">
-                    ЧТО ВЫ ПОЛУЧАЕТЕ, <span>ЗАКАЗЫВАЯ ЧИСТКУ КОВРА</span>
+                    Результаты <span>стирки</span> ковров
                 </h2>
             </div>
         </div>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 mb-lg-4">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 mb-lg-4 flex-nowrap flex-md-wrap overflow-hidden" style="overflow-x: scroll !important">
             @php
                 $benefits = [
-                    (object)['name' => 'Профилактика и устранение болезнетворных бактерий', 'image' => 'http://himchistkakovrovkristall.ru/img/you_get_li1_bg.jpg'],
-                    (object)['name' => '100% устранение запаха мочи, грибка, плесени', 'image' => 'http://himchistkakovrovkristall.ru/img/you_get_li2_bg.jpg'],
-                    (object)['name' => 'До 100% выведение всех видов пятен и загрязнений', 'image' => 'http://himchistkakovrovkristall.ru/img/you_get_li3_bg.jpg'],
-                    (object)['name' => 'Чистка проф. гиппоаллегренными средствами', 'image' => 'http://himchistkakovrovkristall.ru/img/you_get_li4_bg.jpg'],
+                    (object)['name' => 'Профилактика и устранение болезнетворных бактерий', 'image' => '/kovrochist/img/backtery.jpeg'],
+                    (object)['name' => '100% устранение запаха мочи, грибка, плесени', 'image' => '/kovrochist/img/zapah.jpeg'],
+                    (object)['name' => 'До 100% выведение всех видов пятен и загрязнений', 'image' => '/kovrochist/img/pyatno.jpeg'],
+                    (object)['name' => 'Чистка проф. гиппоаллегренными средствами', 'image' => '/kovrochist/img/himiya.jpeg'],
                 ]
             @endphp
             @foreach ($benefits as $elem)
                 <div class="col mb-4 mb-lg-0">
-                    <div class="benefit-item bg-image rounded p-3" style="background: url(//via.placeholder.com/1024x1024)">
-                        <div class="text-light">
+                    <div class="benefit-item bg-image overflow-hidden rounded p-3" style="background: url({{ $elem->image }})">
+                        <div class="overlay"></div>
+                        <div class="text-light position-relative">
                             <h5>{{ $elem->name }}</h5>
                         </div>
                     </div>
@@ -157,65 +184,69 @@
 
         </div>
         <div class="row justify-content-center mb-5">
-            <div class="col-8 text-center">
-                <button class="btn btn-primary w-100">Отправить заявку</button>
+            <div class="col-12 col-md-6">
+                <modal-window>
+                    <button class="btn btn-primary rounded-pill w-100">
+                        Оставить заяку сейчас
+                    </button>
+                </modal-window>
             </div>
         </div>
     </div>
 </section>
 
 <section>
-    <div class="container">
-        <div class="row align-items-center d-flex">
-            <div class="col">
-                <h2>Вы можете рассчитать<br>
-                Стоимость услуги</h2>
-                <p>
-                    Воспользуйтесь нашим калькулятором <br> Для рассчета приблизительной стоимости <br>Для этого выберите тип коврового покрытия и введите длину и ширину<br>Либо вы можете позвонить нам
-                </p>
-                <div class="buttons">
-                    <a href="tel:+79014794940" class="btn btn-primary rounded-pill">Позвонить</a>
-                </div>
-            </div>
-            <div class="col">
-                <form action="" style="padding: 15px;" class="frm-up">
-                    <div class="form-control calc-form">
-                        <label for="">Выберите тип покрытия:</label>
-                        <select name="" id="type_carpet" style="width: 100%;" class="form-select mb-2">
-                            <option value="1" selected>Синтетика</option>
-                            <option value="2">Шерсть</option>
-                        </select>
-                        <label for="">Выберите высоту ворса:</label>
-                        <select name="" id="carp_height" style="width: 100%;" class="form-select mb-2">
-                            <option value="1" selected>Низкий</option>
-                            <option value="2">Высокий</option>
-                        </select>
-                        <label for="">Введите длину:</label>
-                        <input type="number" id="lenght" placeholder="3,2" class="form-input">
-                        <label for="">Введите ширину:</label>
-                        <input type="number" id="width" placeholder="3,2" class="form-input" style="color:#000;">
-                        <div class="row">
-                            <div class="col-md-12 mb-3">
-                                <h3 style="color:#fff;">Стоимость: <span id="cost"></span></h3>
-                            </div>
-                            <div class="col-md-12">
-                                <button class="frm-btn" id="calculate">Рассчитать</button>
-                        </div>
-                        </div>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </div>
+    @php
+        $coverTypes = [
+            (object) ['id' => 1, 'name' => 'Безворсовый', 'image' => '/kovrochist/img/carpets/bezvors.jpeg', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '/kovrochist/img/carpets/bezvors_height.jpeg']
+                    ]],
+            (object) ['id' => 2, 'name' => 'Ковролин', 'image' => '/kovrochist/img/carpets/kovrolin.jpeg', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '/kovrochist/img/carpets/bezvors_height.jpeg'],
+                        ['id' => 2, 'name' => 'Низкий', 'image' => '/kovrochist/img/carpets/short.jpeg']
+                    ]],
+            (object) ['id' => 3, 'name' => 'Синтетика', 'image' => '/kovrochist/img/carpets/sintetika.jpeg', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '/kovrochist/img/carpets/bezvors_height.jpeg'],
+                        ['id' => 2, 'name' => 'Низкий', 'image' => '/kovrochist/img/carpets/short.jpeg'],
+                        ['id' => 3, 'name' => 'Средний', 'image' => '/kovrochist/img/carpets/medium.jpeg']
+                    ]],
+            (object) ['id' => 4, 'name' => 'Вискоза', 'image' => '/kovrochist/img/carpets/viskoza.jpeg', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '/kovrochist/img/carpets/bezvors_height.jpeg'],
+                        ['id' => 2, 'name' => 'Низкий', 'image' => '/kovrochist/img/carpets/short.jpeg']
+                    ]],
+            (object) ['id' => 5, 'name' => 'Акрил', 'image' => '/kovrochist/img/carpets/akril.jpeg', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '/kovrochist/img/carpets/bezvors_height.jpeg'],
+                        ['id' => 2, 'name' => 'Низкий', 'image' => '/kovrochist/img/carpets/short.jpeg']
+                    ]],
+            (object) ['id' => 6, 'name' => 'Бамбук', 'image' => '/kovrochist/img/carpets/bambuk.jpeg', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '/kovrochist/img/carpets/bezvors_height.jpeg'],
+                        ['id' => 2, 'name' => 'Низкий', 'image' => '/kovrochist/img/carpets/short.jpeg']
+                    ]],
+            (object) ['id' => 7, 'name' => 'Шёлк', 'image' => '/kovrochist/img/carpets/shelk.jpeg', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '/kovrochist/img/carpets/bezvors_height.jpeg'],
+                        ['id' => 2, 'name' => 'Низкий', 'image' => '/kovrochist/img/carpets/short.jpeg']
+                    ]],
+            (object) ['id' => 8, 'name' => 'Шерсть', 'image' => '/kovrochist/img/carpets/sherst.jpeg', 'length' => [
+                        ['id' => 1, 'name' => 'Безворсовый', 'image' => '/kovrochist/img/carpets/bezvors_height.jpeg'],
+                        ['id' => 2, 'name' => 'Низкий', 'image' => '/kovrochist/img/carpets/short.jpeg']
+                    ]],
+            (object) ['id' => 9, 'name' => 'Шегги', 'image' => '/kovrochist/img/carpets/shaggy.jpeg', 'length' => [
+                        ['id' => 1, 'name' => 'Низкий', 'image' => '/kovrochist/img/carpets/short.jpeg'],
+                        ['id' => 2, 'name' => 'Средний', 'image' => '/kovrochist/img/carpets/medium.jpeg'],
+                        ['id' => 3, 'name' => 'Высокий', 'image' => '/kovrochist/img/carpets/long.jpeg']
+                    ]],
+        ];
+    @endphp
+    <carpet-quiz :carpets='@json($coverTypes)'>        
+    </carpet-quiz>
 </section>
 
 <section>
     <div class="container">
         <div class="row mb-4">
             <div class="col-12 col-md-8">
-                <h2 class="section-title">Галерея <span>проведенных</span> работ</h2>
-                <p>На данных фотографиях Вы можете увидеть, какая большая разница между до и после</p>
+                <h2 class="section-title">Галерея <span>работ</span></h2>
+                <p>Фотографии разделены на "до" и "после", чтобы наглядно показать результат нашей работы на настоящих примерах.</p>
             </div>
         </div>
         <div class="row">
@@ -243,22 +274,6 @@
     </div>
 </section>
 
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 skill-left">
-                <h2>Позаботьтесь о близких!</h2>
-                <p>
-                    Вспомните, какие облака пыли поднимаются вокруг ковра, когда его выбивают. <br> Они в прямом смысле отравляет вам жизнь. Каждый год в ковре и под ним собирается 2–3 килограмма пыли. <br> Так что ковёр в доме может привести к аллергии, затруднению дыхания и проблемам со сном. Исходя из этого чистка ковров рекомендована не реже <span style="font-weight: bold;font-size: 20px;">2 раз</span> в год
-                </p>
-                <button class="btn btn-primary rounded-pill">Отправить заявку</button>
-            </div>
-            <div class="col-lg-6 text-center about-right call-rght" style="margin-top:20px;">
-                <img src="/kovrochist/img/about_carpet.png" alt="" class="img-fluid">
-            </div>
-        </div>
-    </div>
-</section>
 
 <section>
     <div class="container">
@@ -272,25 +287,33 @@
         </div>
         <div class="row align-items-center">
 
-            <div class="col-md-8 mb-5">
+            <div class="col">
                 <div style="position:relative;overflow:hidden;border-radius: 2em;"><a href="https://yandex.ru/maps/46/kirov/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Киров</a><a href="https://yandex.ru/maps/46/kirov/house/ulitsa_romana_yerdyakova_25/YEAYcARiQUIFQFtifXpwdn1nYw==/?ll=49.632896%2C58.617215&utm_medium=mapframe&utm_source=maps&z=18" style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица Романа Ердякова, 25 — Яндекс.Карты</a><iframe src="https://yandex.ru/map-widget/v1/-/CCUMUQetHA" width="100%" height="400" frameborder="0" allowfullscreen="true" style="position:relative;"></iframe></div>
             </div>
             <div class="col-md-4">
                 <div class="row">
                     <div class="col-md-12 mb-5">
                         <h3 style="margin-bottom: 0.5em;">Адрес: </h3>
-                        <div>
-                        <h4 style="font-weight: 200;"><span class="footer-icon"><i class="fas fa-map-marker-alt"></i></span>Киров, ул.Романа Ердякова, 25</h4>
-                        </div>
+                        <h5 class="d-flex align-items-center">
+                            <i class="fa fa-map-marker d-none d-lg-flex" style="margin-right: 6px"></i>
+                            г. Киров, ул. Романа Ердякова 50 строение 2 второй этаж 
+                            (Над мойкой самообслуживания «мой сам»)
+                        </h5>
                     </div>
                     <div class="col-md-12 mb-5">
                         <h3 style="margin-bottom: 0.5em;">Телефон: </h3>
-                        <h4 style="font-weight: 200;"><span class="footer-icon"><i class="fa fa-phone"></i></span>+7 (901) 479-49-40</h4>
+                        <h5 class="d-flex align-items-center">
+                            <i class="fa fa-phone d-none d-lg-flex" style="margin-right: 6px"></i>
+                            +7 (901) 479-49-40
+                        </h5>
                     </div>
-                    <div class="col-md-12 mb-5">
+                    {{-- <div class="col-md-12 mb-5">
                         <h3 style="margin-bottom: 0.5em;">Почта: </h3>
-                        <h4 style="font-weight: 200;"><span class="footer-icon"><i class="far fa-envelope"></i></span>covrochistkirov@mail.ru</h4>
-                    </div>
+                        <h5 class="d-flex align-items-center">
+                            <i class="fa fa-envelope" style="margin-right: 6px"></i>
+                            covrochistkirov@mail.ru
+                        </h5>
+                    </div> --}}
                 </div>
             </div>
         </div>
