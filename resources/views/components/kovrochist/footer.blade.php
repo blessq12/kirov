@@ -18,10 +18,10 @@
                         <i class="fa fa-phone"></i>
                         <p class="mb-0 mx-2">+7 (901) 479-49-40</p>
                     </li>
-                    <li class="d-flex align-items-center mb-2">
+                    {{-- <li class="d-flex align-items-center mb-2">
                         <i class="fa fa-envelope"></i>
                         <p class="mb-0 mx-2">covrochistkirov@mail.ru</p>
-                    </li>
+                    </li> --}}
                     <li class="d-flex align-items-center mb-2">
                         <i class="fa fa-map-marker"></i>
                         <p class="mb-0 mx-2">Киров, ул.Романа Ердякова, 25</p>
