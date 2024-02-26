@@ -21,10 +21,13 @@ export default {
         >
             <div class="mobile-menu" v-if="show" ref="mMenu">
                 <div class="container">
-                    <div class="row mb-4">
-                        <div class="col">
+                    <div class="row row-cols-1 mb-4">
+                        <div class="col mb-2">
                             <span class="text-light d-block">Адрес:</span>
-                            <p class="mb-0">Киров, ул.Романа Ердякова, 25</p>
+                            <p class="mb-0">
+                                г. Киров, ул. Романа Ердякова 50 строение 2 второй этаж
+                                (Над мойкой самообслуживания «мой сам»)
+                            </p>
                         </div>
                         <div class="col">
                             <span class="text-light d-block">Телефон:</span>
