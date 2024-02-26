@@ -4,7 +4,7 @@
             <div class="col">
                 <div class="footer-logo mb-2">
                     <img src="/kovrochist/img/logo.png" alt="" class="img-fluid">
-                    <span>Коврочист43</span>
+                    <span style="line-height: .9">Вятский<br>коврочист</span>
                 </div>
                 <p class="text-light">
                     Профессиональная стирка и чистка ковров в Кирове с бесплатной доставкой

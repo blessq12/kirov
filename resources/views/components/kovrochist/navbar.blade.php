@@ -4,7 +4,7 @@
       <div class="col d-flex justify-content-start">
         <div class="nav-logo">
           <img src="/kovrochist/img/logo.png" alt="" class="img-fluid">
-          <span>Коврочист43</span>
+          <span style="line-height: .9">Вятский<br>коврочист</span>
         </div>
       </div>
       <div class="col d-none d-lg-flex text-center justify-content-center ">
